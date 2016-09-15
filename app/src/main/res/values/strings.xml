@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ChatApplication</string>
+    <string-array name="catlist">
+        <item>ОРТ</item>
+        <item>Россия</item>
+        <item>ТНТ</item>
+        <item>Культура</item>
+        <item>Пятница</item>
+        <item>Че</item>
+        <item>Мульт</item>
+        <item>Discovery</item>
+        <item>Моя планета</item>
+    </string-array>
 </resources>
+
+

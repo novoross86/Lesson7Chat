@@ -27,37 +27,19 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Пояснение"
         android:id="@+id/textView2"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
+        android:layout_below="@+id/mPostTitle"
+        android:layout_alignLeft="@+id/mPostTitle"
+        android:layout_alignStart="@+id/mPostTitle"
         android:layout_marginTop="10dp"
         android:textColor="@color/grayText" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Канал"
-        android:id="@+id/textView3"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:textColor="@color/grayText" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ГОТОВО"
-        android:id="@+id/button"
-        android:background="@color/colorPrimary"
-        android:layout_alignParentBottom="true"
-        android:textColor="@android:color/white" />
+
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/mPostTitle"
         android:layout_below="@+id/textView"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView"
@@ -69,11 +51,43 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/mPostDesc"
         android:layout_marginLeft="20dp"
         android:layout_below="@+id/textView2"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:padding="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Канал"
+        android:id="@+id/textView3"
+        android:textColor="@color/grayText"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mSp"
+        android:entries="@array/catlist"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ГОТОВО"
+        android:id="@+id/mBtn"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>
