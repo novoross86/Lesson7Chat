@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                         chatRoomIntent.putExtra("chat_key", post_key);
                         startActivity(chatRoomIntent);
 
-
                     }
                 });
 

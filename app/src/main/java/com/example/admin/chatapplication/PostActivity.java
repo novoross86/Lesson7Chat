@@ -77,18 +77,34 @@ public class PostActivity extends AppCompatActivity{
 
             final DatabaseReference newPost = mDatabase.push();
 
+
+
             mDatabaseUser.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     //создание ид в чатах
                     DatabaseReference newChat = chDatabase.push();
+                    final String temp_key = newChat.getKey();
                     newChat.child("title").setValue(title_val);
+
+                    final String user_name = dataSnapshot.child("name").getValue().toString();
 
                     newPost.child("title").setValue(title_val);
                     newPost.child("text").setValue(desc_val);
                     newPost.child("channel").setValue(channel_val);
                     newPost.child("uid").setValue(mCurrentUer.getUid());
                     newPost.child("username").setValue(dataSnapshot.child("name").getValue());
+                    newPost.child("chat_id").setValue(temp_key);
+
+
+                    mProgress.dismiss();
+
+                    //startActivity(new Intent(PostActivity.this, MainActivity.class));
+
+                    Intent chatRoomIntent = new Intent(PostActivity.this, ChatRoom.class);
+                    chatRoomIntent.putExtra("chat_id", temp_key);
+                    chatRoomIntent.putExtra("user_name", user_name);
+                    startActivity(chatRoomIntent);
 
                 }
 
@@ -99,9 +115,7 @@ public class PostActivity extends AppCompatActivity{
             });
 
 
-            mProgress.dismiss();
 
-            startActivity(new Intent(PostActivity.this, MainActivity.class));
 
         }
     }
