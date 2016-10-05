@@ -3,16 +3,41 @@ package com.example.admin.chatapplication;
 
 public class Post {
 
-    private String channel, text, title;
+    private String channel, text, title, chat_id, username;
 
-    public Post(String channel, String text, String title){
+
+    public Post(String channel, String text, String title, String chat_id, String username){
         this.channel = channel;
         this.text = text;
         this.title = title;
+        this.chat_id = chat_id;
+        this.username = username;
     }
 
-    public Post(){
+    public Post(){}
 
+    public String getChatId() {
+        return chat_id;
+    }
+
+    public String getChat_id() {
+        return chat_id;
+    }
+
+    public void setChat_id(String chat_id) {
+        this.chat_id = chat_id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setChatId(String chat_id) {
+        this.chat_id = chat_id;
     }
 
     public String getChannel(){

@@ -76,16 +76,20 @@ public class PostActivity extends AppCompatActivity{
         if(!TextUtils.isEmpty(title_val) && !TextUtils.isEmpty(desc_val)&& !TextUtils.isEmpty(channel_val)){
 
             final DatabaseReference newPost = mDatabase.push();
-
-
+            // получение идентификатора пользователя
+            final String newName = mCurrentUer.getUid();
+            // получение уникальной строки для названия чата
+            final String chatName = channel_val+title_val+newName;
+            // устанавливаем название уникальной строки
+            final DatabaseReference newChat = chDatabase.child(chatName);
 
             mDatabaseUser.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     //создание ид в чатах
-                    DatabaseReference newChat = chDatabase.push();
-                    final String temp_key = newChat.getKey();
-                    newChat.child("title").setValue(title_val);
+
+                    newChat.child("user_name").setValue(dataSnapshot.child("name").getValue());
+
 
                     final String user_name = dataSnapshot.child("name").getValue().toString();
 
@@ -94,16 +98,14 @@ public class PostActivity extends AppCompatActivity{
                     newPost.child("channel").setValue(channel_val);
                     newPost.child("uid").setValue(mCurrentUer.getUid());
                     newPost.child("username").setValue(dataSnapshot.child("name").getValue());
-                    newPost.child("chat_id").setValue(temp_key);
+                    newPost.child("chat_id").setValue(chatName);
 
 
                     mProgress.dismiss();
 
-                    //startActivity(new Intent(PostActivity.this, MainActivity.class));
-
                     Intent chatRoomIntent = new Intent(PostActivity.this, ChatRoom.class);
-                    chatRoomIntent.putExtra("chat_id", temp_key);
                     chatRoomIntent.putExtra("user_name", user_name);
+                    chatRoomIntent.putExtra("chat_name", chatName);
                     startActivity(chatRoomIntent);
 
                 }
@@ -113,9 +115,6 @@ public class PostActivity extends AppCompatActivity{
 
                 }
             });
-
-
-
 
         }
     }

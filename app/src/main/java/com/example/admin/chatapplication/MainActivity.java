@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mPostList;
     private DatabaseReference mDatabase;
-
+    private DatabaseReference nDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        nDatabase = FirebaseDatabase.getInstance().getReference().child("Post");
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener(){
@@ -44,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         };
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Post");
-
         mPostList = (RecyclerView)findViewById(R.id.post_list);
         mPostList.setHasFixedSize(true);
         mPostList.setLayoutManager(new LinearLayoutManager(this));
@@ -55,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         mAuth.addAuthStateListener(mAuthListener);
+
+
+
 
         FirebaseRecyclerAdapter<Post, PostViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Post, PostViewHolder>(
 
@@ -67,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(PostViewHolder viewHolder, Post model, int position) {
 
-                final String post_key = getRef(position).toString();
+                //получение имени пользователя и ид чата для отправки в следующую активити
+                final String newString = model.getChatId();
+                final String user_name = model.getUsername();
 
                 viewHolder.setChannel(model.getChannel());
                 viewHolder.setTitle(model.getTitle());
@@ -77,13 +83,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
 
                         Intent chatRoomIntent = new Intent(MainActivity.this, ChatRoom.class);
-                        chatRoomIntent.putExtra("chat_key", post_key);
+                        chatRoomIntent.putExtra("chat_name", newString);
+                        chatRoomIntent.putExtra("user_name", user_name);
                         startActivity(chatRoomIntent);
 
                     }
                 });
-
-
             }
         };
 

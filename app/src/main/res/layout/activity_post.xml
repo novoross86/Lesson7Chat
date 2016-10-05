@@ -46,17 +46,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/mPostDesc"
-        android:layout_marginLeft="20dp"
-        android:layout_below="@+id/textView2"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:padding="30dp" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -89,5 +79,18 @@
         android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:textColor="@android:color/white" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginTop="10dp"
+        android:id="@+id/mPostDesc"
+        android:layout_alignRight="@+id/mPostTitle"
+        android:layout_alignEnd="@+id/mPostTitle" />
 
 </RelativeLayout>
