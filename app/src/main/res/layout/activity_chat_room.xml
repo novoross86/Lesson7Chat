@@ -9,36 +9,35 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.admin.chatapplication.ChatRoom">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send"
-        android:id="@+id/SendChatMsg"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/linearLayout"/>
 
-    <EditText
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editTextMsg"
-        android:layout_alignBottom="@+id/SendChatMsg"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/SendChatMsg"
-        android:layout_toStartOf="@+id/SendChatMsg" />
+        android:id="@+id/linearLayout">
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" >
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextMsg"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"/>
 
-        <TextView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView4" />
-    </ScrollView>
+            android:text="SEND"
+            android:id="@+id/SendChatMsg"
+            android:layout_gravity="bottom"/>
+
+    </LinearLayout>
+
 </RelativeLayout>

@@ -57,9 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth.addAuthStateListener(mAuthListener);
 
-
-
-
         FirebaseRecyclerAdapter<Post, PostViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Post, PostViewHolder>(
 
                 Post.class,
@@ -78,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 viewHolder.setChannel(model.getChannel());
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setText(model.getText());
+
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -101,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
         View mView;
 
         public PostViewHolder(View itemView) {
-            super(itemView);
 
+            super(itemView);
             mView = itemView;
         }
 
@@ -125,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
             post_text.setText(text);
 
         }
-
     }
 
     @Override

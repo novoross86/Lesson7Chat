@@ -81,14 +81,14 @@ public class PostActivity extends AppCompatActivity{
             // получение уникальной строки для названия чата
             final String chatName = channel_val+title_val+newName;
             // устанавливаем название уникальной строки
-            final DatabaseReference newChat = chDatabase.child(chatName);
+            final DatabaseReference newChat = chDatabase.child(chatName).push();
 
             mDatabaseUser.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     //создание ид в чатах
-
-                    newChat.child("user_name").setValue(dataSnapshot.child("name").getValue());
+                    newChat.child("msg").setValue(desc_val);
+                    newChat.child("name").setValue(dataSnapshot.child("name").getValue());
 
 
                     final String user_name = dataSnapshot.child("name").getValue().toString();
