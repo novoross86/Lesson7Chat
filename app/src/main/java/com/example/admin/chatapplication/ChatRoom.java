@@ -18,7 +18,6 @@ import java.util.Map;
 
 public class ChatRoom extends AppCompatActivity {
 
-
     private Button btn_send_msg;
     private EditText input_msg;
     private String temp_key;
@@ -26,9 +25,6 @@ public class ChatRoom extends AppCompatActivity {
     private DatabaseReference root;
     private LinearLayoutManager mLinearLayoutManager;
     private FirebaseRecyclerAdapter<Massege, MassegeViewHolder> mFirebaseAdapter;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +63,6 @@ public class ChatRoom extends AppCompatActivity {
                 viewHolder.setMsg(model.getMsg());
             }
         };
-
 
         //перемещение на последнюю позицию
         mFirebaseAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
