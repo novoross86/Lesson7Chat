@@ -12,7 +12,11 @@
         app:showAsAction="never" />
 
     <item android:id ="@+id/action_logout"
-        android:title ="Log Out"
+    android:title ="Log Out"
+    app:showAsAction = "never"/>
+
+    <item android:id ="@+id/action_setup"
+        android:title ="Setup"
         app:showAsAction = "never"/>
 
 </menu>

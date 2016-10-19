@@ -146,6 +146,11 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        if(item.getItemId() == R.id.action_setup){
+
+            startActivity(new Intent(MainActivity.this, SetupActivity.class ));
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

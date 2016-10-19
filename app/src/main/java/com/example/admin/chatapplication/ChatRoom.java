@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +28,8 @@ public class ChatRoom extends AppCompatActivity {
     private LinearLayoutManager mLinearLayoutManager;
     private FirebaseRecyclerAdapter<Massege, MassegeViewHolder> mFirebaseAdapter;
 
+    private StorageReference mStorageRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,9 @@ public class ChatRoom extends AppCompatActivity {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        //Storage reference
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+
         final String user_name = getIntent().getExtras().getString("user_name");
         final String chat_name = getIntent().getExtras().getString("chat_name");
 
@@ -48,8 +55,6 @@ public class ChatRoom extends AppCompatActivity {
         setTitle("Room - " + chat_name);
 
         root = FirebaseDatabase.getInstance().getReference().child("Chat").child(chat_name);
-
-
 
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Massege, MassegeViewHolder>(
                 Massege.class,
@@ -82,9 +87,7 @@ public class ChatRoom extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRecyclerView.setAdapter(mFirebaseAdapter);
 
-
         //отправка сообщения
-
         btn_send_msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,7 +111,6 @@ public class ChatRoom extends AppCompatActivity {
                 if(s != d){
                     mRecyclerView.scrollToPosition(s);
                 }
-
             }
         });
 
