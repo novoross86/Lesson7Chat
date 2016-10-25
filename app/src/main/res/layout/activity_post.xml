@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,45 +9,32 @@
     tools:context="com.example.admin.chatapplication.PostActivity">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Тема"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/grayText" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Пояснение"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/mPostTitle"
-        android:layout_alignLeft="@+id/mPostTitle"
-        android:layout_alignStart="@+id/mPostTitle"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/grayText" />
-
-
-
-
-    <EditText
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mPostTitle"
-        android:layout_below="@+id/textView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp" />
+        android:text="@string/save"
+        android:id="@+id/mBtn"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:textColor="@android:color/white" />
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mSp"
+        android:entries="@array/catlist"
+        android:layout_marginBottom="28dp"
+        android:layout_above="@+id/mBtn"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
 
+    <ImageButton
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/logo_googleg_color_18dp"
+        android:id="@+id/imageButton1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,42 +43,55 @@
         android:text="Канал"
         android:id="@+id/textView3"
         android:textColor="@color/grayText"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/mSp"
-        android:entries="@array/catlist"
-        android:layout_below="@+id/textView3"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/mSp"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ГОТОВО"
-        android:id="@+id/mBtn"
-        android:background="@color/colorPrimary"
-        android:layout_alignParentBottom="true"
-        android:textColor="@android:color/white" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="10"
-        android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_marginTop="10dp"
         android:id="@+id/mPostDesc"
-        android:layout_alignRight="@+id/mPostTitle"
-        android:layout_alignEnd="@+id/mPostTitle" />
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Пояснение"
+        android:id="@+id/textView2"
+        android:textColor="@color/grayText"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/mPostTitle"
+        android:layout_alignLeft="@+id/mPostDesc"
+        android:layout_alignStart="@+id/mPostDesc" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mPostTitle"
+        android:layout_marginTop="33dp"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Тема"
+        android:id="@+id/textView"
+        android:textColor="@color/grayText"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/imageButton1"
+        android:layout_alignLeft="@+id/mPostTitle"
+        android:layout_alignStart="@+id/mPostTitle" />
 
 </RelativeLayout>

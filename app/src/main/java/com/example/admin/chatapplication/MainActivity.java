@@ -1,5 +1,6 @@
 package com.example.admin.chatapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,12 +10,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 viewHolder.setChannel(model.getChannel());
                 viewHolder.setTitle(model.getTitle());
                 viewHolder.setText(model.getText());
+                viewHolder.setImage(getApplicationContext(), model.getImage());
 
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -122,6 +126,11 @@ public class MainActivity extends AppCompatActivity {
             TextView post_text = (TextView)mView.findViewById(R.id.post_text);
             post_text.setText(text);
 
+        }
+
+        public void setImage(Context ctx, String image){
+            ImageView post_image = (ImageView)mView.findViewById(R.id.imagePost);
+            Picasso.with(ctx).load(image).into(post_image);
         }
     }
 

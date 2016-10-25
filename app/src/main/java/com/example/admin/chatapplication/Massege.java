@@ -1,17 +1,18 @@
 package com.example.admin.chatapplication;
 
-/**
- * Created by admin on 07.10.2016.
- */
-
 public class Massege {
 
     private String name;
     private String msg;
+    private String image;
 
-    public Massege(String name, String msg){
+
+
+    public Massege(String name, String msg, String image){
         this.name = name;
         this.msg = msg;
+        this.image = image;
+
     }
 
     public Massege(){}
@@ -30,5 +31,13 @@ public class Massege {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
