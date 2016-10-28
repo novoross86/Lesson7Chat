@@ -36,7 +36,7 @@ public class ChatRoom extends AppCompatActivity {
     private DatabaseReference mDatabaseUsers;
     private LinearLayoutManager mLinearLayoutManager;
     private FirebaseRecyclerAdapter<Massege, MassegeViewHolder> mFirebaseAdapter;
-    private String userNewImage, userNewName;
+    private String userNewImage, userNewName, chatTitle;
 
     private StorageReference mStorageRef;
 
@@ -61,13 +61,14 @@ public class ChatRoom extends AppCompatActivity {
 
         final String user_name = getIntent().getExtras().getString("user_name");
         final String chat_name = getIntent().getExtras().getString("chat_name");
+        final String chat_title = getIntent().getExtras().getString("chat_title");
 
 
         //инициализация linetLayoutManeger
         mLinearLayoutManager = new LinearLayoutManager(this);
         mLinearLayoutManager.setStackFromEnd(true);
 
-        setTitle("Room - ");
+        setTitle(chat_title);
 
         root = FirebaseDatabase.getInstance().getReference().child("Chat").child(chat_name);
 

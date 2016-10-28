@@ -3,11 +3,11 @@ package com.example.admin.chatapplication;
 
 public class Post {
 
-    private String channel, text, title, chat_id, username, image;
+    private String channel, title, chat_id, username, image;
 
-    public Post(String channel, String text, String title, String chat_id, String username, String image){
+    public Post(String channel, String title, String chat_id, String username, String image){
         this.channel = channel;
-        this.text = text;
+
         this.title = title;
         this.chat_id = chat_id;
         this.username = username;
@@ -47,14 +47,6 @@ public class Post {
 
     public void setChannel(String channel){
         this.channel = channel;
-    }
-
-    public String getText(){
-        return text;
-    }
-
-    public void setText(String text){
-        this.text = text;
     }
 
     public String getTitle(){

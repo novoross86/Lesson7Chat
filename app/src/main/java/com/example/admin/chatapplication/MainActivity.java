@@ -74,10 +74,10 @@ public class MainActivity extends AppCompatActivity {
                 //получение имени пользователя и ид чата для отправки в следующую активити
                 final String newString = model.getChatId();
                 final String user_name = model.getUsername();
+                final String chat_title = model.getTitle();
 
                 viewHolder.setChannel(model.getChannel());
                 viewHolder.setTitle(model.getTitle());
-                viewHolder.setText(model.getText());
                 viewHolder.setImage(getApplicationContext(), model.getImage());
 
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent chatRoomIntent = new Intent(MainActivity.this, ChatRoom.class);
                         chatRoomIntent.putExtra("chat_name", newString);
                         chatRoomIntent.putExtra("user_name", user_name);
+                        chatRoomIntent.putExtra("chat_title", chat_title);
                         startActivity(chatRoomIntent);
 
                     }
@@ -121,12 +122,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        public void setText(String text){
 
-            TextView post_text = (TextView)mView.findViewById(R.id.post_text);
-            post_text.setText(text);
-
-        }
 
         public void setImage(Context ctx, String image){
             ImageView post_image = (ImageView)mView.findViewById(R.id.imagePost);

@@ -120,7 +120,6 @@ public class PostActivity extends AppCompatActivity{
                             newChat.child("image").setValue(dataSnapshot.child("image").getValue());
 
                             newPost.child("title").setValue(title_val);
-                            newPost.child("text").setValue(desc_val);
                             newPost.child("channel").setValue(channel_val);
                             newPost.child("uid").setValue(mCurrentUer.getUid());
                             newPost.child("username").setValue(dataSnapshot.child("name").getValue());
@@ -132,6 +131,7 @@ public class PostActivity extends AppCompatActivity{
                             Intent chatRoomIntent = new Intent(PostActivity.this, ChatRoom.class);
                             chatRoomIntent.putExtra("user_name", user_name);
                             chatRoomIntent.putExtra("chat_name", chatName);
+                            chatRoomIntent.putExtra("chat_title", title_val);
                             startActivity(chatRoomIntent);
 
                         }
